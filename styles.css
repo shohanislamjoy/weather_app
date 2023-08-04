@@ -5,7 +5,7 @@ body {
     /* background-color: #f3f3f3; */
     background-image: url('./img/img_3.jpg');
     background-size: cover;
-    background-position: center;
+    /* background-position: center; */
 }
 
 .weather-app {
@@ -90,4 +90,17 @@ button {
     display: flex;
     justify-content: flex-end;
     margin: auto;
+}
+
+@media (max-width: 768px) {
+    .weather-app {
+        margin: 0;
+        background-color: transparent;
+    }
+}
+
+@media (max-width: 480px) {
+    .weather-app {
+        background-color: transparent;
+    }
 }
