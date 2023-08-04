@@ -1,6 +1,6 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Replace 'YOUR_API_KEY' with your actual OpenWeatherMap API key
+    
     $apiKey = '90dfe8c16d20d81a6b365f55111568ea';
     $cityId = $_POST['city'];
     $url = "http://api.openweathermap.org/data/2.5/forecast?id={$cityId}&appid={$apiKey}&units=metric";
@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             );
         }
 
-        // Calculate the average values for each day
+        // Calculating the average values for each day
         $averageForecast = array();
         foreach ($forecast as $date => $dailyForecast) {
             $averageForecast[$date] = array(
@@ -38,6 +38,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 }
+
+
 ?>
 
 <!DOCTYPE html>
