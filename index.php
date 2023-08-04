@@ -1,6 +1,6 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    
+    // Replace 'YOUR_API_KEY' with your actual OpenWeatherMap API key
     $apiKey = '90dfe8c16d20d81a6b365f55111568ea';
     $cityId = $_POST['city'];
     $url = "http://api.openweathermap.org/data/2.5/forecast?id={$cityId}&appid={$apiKey}&units=metric";
@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             );
         }
 
-        // Calculating the average values for each day
+        // Calculate the average values for each day
         $averageForecast = array();
         foreach ($forecast as $date => $dailyForecast) {
             $averageForecast[$date] = array(
@@ -38,8 +38,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 }
-
-
 ?>
 
 <!DOCTYPE html>
@@ -59,11 +57,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <option value="2643743">London, UK</option>
                 <option value="5128581">New York, US</option>
                 <option value="1850147">Tokyo, JP</option>
-                <!-- Add more options for other cities if needed -->
+            
             </select>
             <button type="submit">Get Weather</button>
         </form>
         <div class="weather-info">
+            <?php if (isset($city)&& isset($country)):?>
             <h2><?php echo "{$city}, {$country}"; ?></h2>
             <?php foreach ($averageForecast as $date => $day): ?>
                 <div class="weather-day">
@@ -75,6 +74,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <p>Rain Possibility: <?php echo ($day['rain_possibility'] !== 'N/A') ? "{$day['rain_possibility']} mm" : 'N/A'; ?></p>
                 </div>
                 <?php endforeach; ?>
+            
+             <?php else: ?>
+                <h2> Please select the city and country</h2>
+            <?php endif ;?>
+
             <div class="footer">
             <p>Copyright © 2023 Shohan_islam_Joy All rights reserved</p>
         </div>
