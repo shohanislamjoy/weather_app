@@ -1,0 +1,93 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    /* background-color: #f3f3f3; */
+    background-image: url('./img/img_3.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.weather-app {
+    max-width: 800px;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* background-color: transparent; */
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #007bff;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    margin-right: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.weather-info {
+    text-align: center;
+}
+
+.weather-day {
+    display: inline-block;
+    vertical-align: top;
+    text-align: left;
+    padding: 20px;
+    margin: 10px;
+    width: 200px;
+    height: 180px;
+    /* Add the height property */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.location h2 {
+    margin: 0;
+}
+
+.weather-day h3 {
+    margin: 5px 0;
+}
+
+.weather-day p {
+    margin: 2px 0;
+}
+
+
+/* Add more styles for other weather conditions as needed */
+
+.footer p {
+    color: rgb(8, 137, 230);
+    display: flex;
+    justify-content: flex-end;
+    margin: auto;
+}
