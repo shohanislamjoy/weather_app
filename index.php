@@ -14,13 +14,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Group the weather data by day
         $forecast = array();
         foreach ($weatherData['list'] as $item) {
-            $date = date('Y-m-d', $item['dt']);
+            $date = date('d-m-Y', $item['dt']);
             $forecast[$date][] = array(
                 'temperature' => $item['main']['temp'],
                 'description' => ucfirst($item['weather'][0]['description']),
                 'humidity' => $item['main']['humidity'],
-                'wind_speed' => $item['wind']['speed'],
-                'rain_possibility' => isset($item['rain']['3h']) ? $item['rain']['3h'] : 'N/A',
+                'wind_speed' => $item['wind']['speed']
             );
         }
 
@@ -31,8 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 'temperature' => round(array_sum(array_column($dailyForecast, 'temperature')) / count($dailyForecast), 1),
                 'description' => $dailyForecast[0]['description'], 
                 'humidity' => round(array_sum(array_column($dailyForecast, 'humidity')) / count($dailyForecast)),
-                'wind_speed' => round(array_sum(array_column($dailyForecast, 'wind_speed')) / count($dailyForecast), 1),
-                'rain_possibility' => $dailyForecast[0]['rain_possibility'], 
+                'wind_speed' => round(array_sum(array_column($dailyForecast, 'wind_speed')) / count($dailyForecast), 1)
             );
         }
     }
@@ -51,11 +49,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="weather-app">
         <h1>Weather App</h1>
         <form action="index.php" method="post">
-            <label for="city">Select a city:</label>
+            <label for="city">Select a city <b>: </b></label>
             <select id="city" name="city">
-                <option value="2643743" class="london">London, UK</option>
+                <option value="2643743">London, UK</option>
                 <option value="5128581">New York, US</option>
                 <option value="1850147">Tokyo, JP</option>
+                <option value="1337178">Dhaka, BD</option>
+                <option value="1337200">Chittagong, BD</option>
+                <option value="1261481">New Delhi, IN</option>
+                <option value="1816670">Beijing, CN</option>
+                <option value="4876353">Sidney, AS</option>
+
             
             </select>
             <button type="submit">Get Weather</button>
@@ -65,17 +69,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <h2><?php echo "{$city}, {$country}"; ?></h2>
             <?php foreach ($averageForecast as $date => $day): ?>
                 <div class="weather-day">
+                <h2><?php 
+                    $datetime=new Datetime($date);
+                    $dayName = $datetime->format('l');
+                       echo $dayName;?></h2>
                     <h3><?php echo $date; ?></h3>
                     <p>Temperature: <?php echo "{$day['temperature']} °C"; ?></p>
                     <p>Description: <?php echo $day['description']; ?></p>
                     <p>Humidity: <?php echo "{$day['humidity']}%"; ?></p>
                     <p>Wind Speed: <?php echo "{$day['wind_speed']} m/s"; ?></p>
-                    <p>Rain Possibility: <?php echo ($day['rain_possibility'] !== 'N/A') ? "{$day['rain_possibility']} mm" : 'N/A'; ?></p>
                 </div>
                 <?php endforeach; ?>
             
              <?php else: ?>
+                <div class="city_not_selected">
                 <h2> Please select the city and country</h2>
+                </div>
             <?php endif ;?>
 
             <div class="footer">

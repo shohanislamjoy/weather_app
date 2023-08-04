@@ -24,7 +24,8 @@ body {
 h1 {
     text-align: center;
     margin-bottom: 20px;
-    color: #007bff;
+    color: rgb(116 0 173 / 92%);
+    font-size: 36px;
 }
 
 form {
@@ -44,7 +45,7 @@ select {
 
 button {
     padding: 10px 20px;
-    background-color: #007bff;
+    background-color: #3186e0;
     border: none;
     border-radius: 5px;
     color: #fff;
@@ -70,11 +71,8 @@ button {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.location h2 {
-    margin: 0;
-}
-
-.weather-day h3 {
+.weather-day h3,
+h2 {
     margin: 5px 0;
 }
 
@@ -82,14 +80,18 @@ button {
     margin: 2px 0;
 }
 
+.city_not_selected h2 {
+    margin-bottom: 30px;
+}
+
 
 /* Add more styles for other weather conditions as needed */
 
 .footer p {
-    color: rgb(8, 137, 230);
+    color: rgb(88, 4, 111);
     display: flex;
     justify-content: flex-end;
-    margin: auto;
+    margin: 1% auto;
 }
 
 @media (max-width: 768px) {
@@ -101,6 +103,7 @@ button {
 
 @media (max-width: 480px) {
     .weather-app {
+        margin: 0;
         background-color: transparent;
     }
 }
