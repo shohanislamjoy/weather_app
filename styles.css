@@ -71,9 +71,13 @@ button {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.weather-day h3,
-h2 {
-    margin: 5px 0;
+.weather-day h3 {
+    margin: 3px;
+}
+
+.weather-day h2 {
+    margin-top: 0;
+    margin-bottom: 5px;
 }
 
 .weather-day p {

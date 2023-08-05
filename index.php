@@ -26,13 +26,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Calculate the average values for each day
         $averageForecast = array();
         foreach ($forecast as $date => $dailyForecast) {
+            $temperatures = array_column($dailyForecast, 'temperature');
+        
             $averageForecast[$date] = array(
-                'temperature' => round(array_sum(array_column($dailyForecast, 'temperature')) / count($dailyForecast), 1),
+                'max_temp' => max($temperatures),
+                'min_temp' => min($temperatures),
+                'temperature' => round(array_sum($temperatures) / count($temperatures), 1),
                 'description' => $dailyForecast[0]['description'], 
                 'humidity' => round(array_sum(array_column($dailyForecast, 'humidity')) / count($dailyForecast)),
                 'wind_speed' => round(array_sum(array_column($dailyForecast, 'wind_speed')) / count($dailyForecast), 1)
             );
         }
+        
     }
 }
 ?>
@@ -78,6 +83,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <p>Description: <?php echo $day['description']; ?></p>
                     <p>Humidity: <?php echo "{$day['humidity']}%"; ?></p>
                     <p>Wind Speed: <?php echo "{$day['wind_speed']} m/s"; ?></p>
+                    <p>Min Temperature <?php echo"{$day['min_temp']}°C"; ?></p>
+                    <p>Max Temperature <?php echo"{$day['max_temp']}°C"; ?></p>
+
+
                 </div>
                 <?php endforeach; ?>
             
