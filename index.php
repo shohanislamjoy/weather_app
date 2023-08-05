@@ -56,10 +56,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <form action="index.php" method="post">
             <label for="city">Select a city <b>: </b></label>
             <select id="city" name="city">
+                <option value="1337178">Dhaka, BD</option>
                 <option value="2643743">London, UK</option>
                 <option value="5128581">New York, US</option>
                 <option value="1850147">Tokyo, JP</option>
-                <option value="1337178">Dhaka, BD</option>
                 <option value="1337200">Chittagong, BD</option>
                 <option value="1261481">New Delhi, IN</option>
                 <option value="1816670">Beijing, CN</option>
