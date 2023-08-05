@@ -11,7 +11,6 @@ A simple weather app that fetches weather data using the OpenWeatherMap API and 
 - [Technologies](#technologies)
 - [Deployed Version](#deployed-version)
 - [Contact](#contact)
-- [License](#license)
 
 ## Screenshots
 
