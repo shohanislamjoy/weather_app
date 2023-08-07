@@ -15,8 +15,9 @@ A simple weather app that fetches weather data using the OpenWeatherMap API and 
 ## Screenshots
 
 ![ss_1](https://github.com/Shohan999Ronol/weather_app/assets/106506181/9781d53a-cfc4-4adf-af54-e15681f98009)
-![ss2](https://github.com/Shohan999Ronol/weather_app/assets/106506181/8ee8dfcf-e04d-42b9-8c60-19fb5a93922f)
-![ss3](https://github.com/Shohan999Ronol/weather_app/assets/106506181/937f3f27-e7eb-41ba-9eb3-be415a0da318)
+![image](https://github.com/Shohan999Ronol/weather_app/assets/106506181/ae5a1599-759b-49c1-928b-628f37c7c03f)
+![image](https://github.com/Shohan999Ronol/weather_app/assets/106506181/172f042a-bb7b-4266-8f74-e0ba769c3f00)
+
 
 
 
@@ -31,7 +32,7 @@ A simple weather app that fetches weather data using the OpenWeatherMap API and 
 
 1. Clone the repository.
 2. Set up a local server or use an online server to host the app.
-3. Obtain an API key from OpenWeatherMap (https://openweathermap.org/) .
+3. Obtain an API key from OpenWeatherMap (https://openweathermap.org/).
 
 ## Usage
 
@@ -48,7 +49,7 @@ A simple weather app that fetches weather data using the OpenWeatherMap API and 
 
 ## Deployed Version
 
-The app is deployed and can be accessed at [http://shohanronol699.22web.org/](http://shohanronol699.22web.org/).
+The app is deployed and can be accessed at [Weather App](http://shohanronol699.2kool4u.net).
 
 ## Contact
 
