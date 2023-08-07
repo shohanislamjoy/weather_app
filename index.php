@@ -3,7 +3,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $apiKey = '90dfe8c16d20d81a6b365f55111568ea';
     $cityId = $_POST['city'];
     $url = "http://api.openweathermap.org/data/2.5/forecast?id={$cityId}&appid={$apiKey}&units=metric";
-
     $data = file_get_contents($url);
     $weatherData = json_decode($data, true);
 
@@ -18,6 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $forecast[$date][] = array(
                 'temperature' => $item['main']['temp'],
                 'description' => ucfirst($item['weather'][0]['description']),
+                'icon'=>ucfirst($item['weather'][0]['icon']),
                 'humidity' => $item['main']['humidity'],
                 'wind_speed' => $item['wind']['speed']
             );
@@ -32,7 +32,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 'max_temp' => max($temperatures),
                 'min_temp' => min($temperatures),
                 'temperature' => round(array_sum($temperatures) / count($temperatures), 1),
-                'description' => $dailyForecast[0]['description'], 
+                'description' => $dailyForecast[0]['description'],
+                'icon' => $dailyForecast[0]['icon'],
                 'humidity' => round(array_sum(array_column($dailyForecast, 'humidity')) / count($dailyForecast)),
                 'wind_speed' => round(array_sum(array_column($dailyForecast, 'wind_speed')) / count($dailyForecast), 1)
             );
@@ -74,6 +75,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <h2><?php echo "{$city}, {$country}"; ?></h2>
             <?php foreach ($averageForecast as $date => $day): ?>
                 <div class="weather-day">
+                    <img src="http://openweathermap.org/img/wn/<?php echo $day['icon'];?>.png">
                 <h2><?php 
                     $datetime=new Datetime($date);
                     $dayName = $datetime->format('l');

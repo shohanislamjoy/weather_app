@@ -21,6 +21,12 @@ body {
     /* background-color: transparent; */
 }
 
+img {
+    margin-top: 0;
+    text-align: center;
+    width: 80px;
+}
+
 h1 {
     text-align: center;
     margin-bottom: 20px;
@@ -60,10 +66,10 @@ button {
     display: inline-block;
     vertical-align: top;
     text-align: left;
-    padding: 20px;
-    margin: 10px;
-    width: 200px;
-    height: 180px;
+    padding: 0 15px;
+    margin: 5px;
+    width: 220px;
+    height: 280px;
     /* Add the height property */
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -72,7 +78,8 @@ button {
 }
 
 .weather-day h3 {
-    margin: 3px;
+    margin-top: 0;
+    margin-bottom: 3px;
 }
 
 .weather-day h2 {
@@ -99,6 +106,15 @@ button {
 }
 
 @media (max-width: 768px) {
+    body {
+        /* font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        /* background-color: #f3f3f3; */
+        /* background-image: url('./img/img_3.jpg'); */
+        background-size: cover;
+        /* background-position: center; */
+    }
     .weather-app {
         margin: 0;
         background-color: transparent;
@@ -106,6 +122,15 @@ button {
 }
 
 @media (max-width: 480px) {
+    body {
+        /* font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        /* background-color: #f3f3f3; */
+        /* background-image: url('./img/img_3.jpg'); */
+        background-size: cover;
+        /* background-position: center; */
+    }
     .weather-app {
         margin: 0;
         background-color: transparent;
