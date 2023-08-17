@@ -82,6 +82,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="./img/Shohan_fav.ico">
+   
 </head>
 <body style="background-image: url(<?php echo $city_pic; ?>);">
     <div class="weather-app">
