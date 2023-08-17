@@ -1,7 +1,39 @@
 <?php
+
+$city_pic='./img/defult.jpg';
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $apiKey = '90dfe8c16d20d81a6b365f55111568ea';
     $cityId = $_POST['city'];
+
+    if($cityId=='1337178'){
+        $city_pic='./img/dhaka.jpg';
+    }
+    elseif($cityId=='2643743'){
+        $city_pic='./img/london.jpg';
+    }
+    elseif($cityId=='5128581'){
+        $city_pic='./img/newyork.jpg';
+    }
+    elseif($cityId=='1850147'){
+        $city_pic='./img/tokyo.jpg';
+    }    
+    elseif($cityId=='1337200'){
+        $city_pic='./img/chittagong.jpg';
+    }
+    elseif($cityId=='1261481'){
+        $city_pic='./img/delhi.jpg';
+    }
+    elseif($cityId=='1816670'){
+        $city_pic='./img/beijing.jpg';
+    }
+    elseif($cityId=='4876353'){
+        $city_pic='./img/sidney.jpg';
+    }
+    else{
+        $city_pic='./img/defult.jpg';
+    }
+
     $url = "http://api.openweathermap.org/data/2.5/forecast?id={$cityId}&appid={$apiKey}&units=metric";
     $data = file_get_contents($url);
     $weatherData = json_decode($data, true);
@@ -51,7 +83,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Weather App</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body style="background-image: url(<?php echo $city_pic; ?>);">
     <div class="weather-app">
         <h1>Weather App</h1>
         <form action="index.php" method="post">
@@ -66,7 +98,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <option value="1816670">Beijing, CN</option>
                 <option value="4876353">Sidney, AS</option>
 
-            
             </select>
             <button type="submit">Get Weather</button>
         </form>
@@ -88,10 +119,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <p>Min Temperature <?php echo"{$day['min_temp']}°C"; ?></p>
                     <p>Max Temperature <?php echo"{$day['max_temp']}°C"; ?></p>
 
-
                 </div>
                 <?php endforeach; ?>
-            
              <?php else: ?>
                 <div class="city_not_selected">
                 <h2> Please select the city and country</h2>
@@ -105,7 +134,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
     </div>
 
-
-    
 </body>
 </html>
