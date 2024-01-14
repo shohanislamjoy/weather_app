@@ -53,7 +53,7 @@ The app is deployed and can be accessed at [Weather App](http://shohanronol699.2
 
 ## Contact
 
-For any inquiries or suggestions, feel free to contact me via [GitHub](https://github.com/Shohan999Ronol).
+For any inquiries or suggestions, feel free to contact me via [GitHub](https://github.com/shohanislamjoy).
 
 
 
